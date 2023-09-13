@@ -1,4 +1,31 @@
 {
+  "navLinks": [
+    {
+      "key": "01",
+      "text": "HOME",
+      "url": "/home",
+      "number": "01"
+    },
+    {
+      "key": "02",
+      "text": "DESTINATION",
+      "url": "/destination",
+      "number": "02"
+    },
+    {
+      "key": "03",
+      "text": "CREW",
+      "url": "/crew",
+      "number": "03"
+    },
+    {
+      "key": "04",
+      "text": "TECHNOLOGY",
+      "url": "/technology",
+      "number": "04"
+    }
+  ],
+
   "destinations": [
     {
       "name": "Moon",

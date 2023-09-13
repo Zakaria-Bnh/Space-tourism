@@ -1,6 +1,6 @@
-export { default as BgCrewDesktop } from './background-destination-desktop.jpg';
-export { default as BgCrewMobile } from './background-destination-mobile.jpg';
-export { default as BgCrewTablet } from './background-destination-tablet.jpg';
+export { default as BgDestinationDesktop } from './background-destination-desktop.jpg';
+export { default as BgDestinationMobile } from './background-destination-mobile.jpg';
+export { default as BgDestinationTablet } from './background-destination-tablet.jpg';
 export { default as EuropaPng } from './image-europa.png';
 export { default as EuropaWebp } from './image-europa.webp';
 export { default as MarsPng } from './image-mars.png';
