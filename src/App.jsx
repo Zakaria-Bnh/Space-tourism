@@ -10,14 +10,18 @@ const App = () => {
   return (
     <Router>
       <BgImage>
-        <div className="max-w-[1440px] m-auto pt-8">
-          <Navigation />
-          <Routes>
-            <Route exact path="/home" element={<Home />} />
-            <Route path="/crew" element={<Crew />} />
-            <Route path="/destination" element={<Destination />} />
-            <Route path="/technology" element={<Technology />} />
-          </Routes>
+        <div className="max-w-[1440px] m-auto">
+          <header className="lg:pt-8 w-[90%] m-auto sm:ml-auto sm:mr-0 sm:w-[95%]">
+            <Navigation />
+          </header>
+          <main className="w-[90%] sm:w-[80%] m-auto mt-14 md:mt-20 pb-14 md:pb-20">
+            <Routes>
+              <Route exact path="/home" element={<Home />} />
+              <Route path="/crew" element={<Crew />} />
+              <Route path="/destination" element={<Destination />} />
+              <Route path="/technology" element={<Technology />} />
+            </Routes>
+          </main>
         </div>
       </BgImage>
     </Router>
