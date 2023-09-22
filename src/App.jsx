@@ -17,8 +17,8 @@ const App = () => {
           <main className="w-[90%] sm:w-[80%] m-auto mt-14 md:mt-20 pb-14 md:pb-20">
             <Routes>
               <Route exact path="/home" element={<Home />} />
-              <Route path="/crew" element={<Crew />} />
               <Route path="/destination" element={<Destination />} />
+              <Route path="/crew" element={<Crew />} />
               <Route path="/technology" element={<Technology />} />
             </Routes>
           </main>

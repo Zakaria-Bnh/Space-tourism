@@ -1,4 +1,4 @@
-import { DouglasHurleyPng, DouglasHurleyWebp } from "../assets/crew";
+import { DouglasHurleyPng, DouglasHurleyWebp, MarkShuttleworthPng, MarkShuttleworthWebp, VictorGloverPng, VictorGloverWebp } from "../assets/crew";
 import { EuropaPng, EuropaWebp, MarsPng, MarsWebp, MoonPng, MoonWebp, TitanPng, TitanWebp } from "../assets/destination";
 
 export const data = {
@@ -89,8 +89,8 @@ export const data = {
     {
       name: "Mark Shuttleworth",
       images: {
-        png: "./assets/crew/image-mark-shuttleworth.png",
-        webp: "./assets/crew/image-mark-shuttleworth.webp",
+        png: MarkShuttleworthPng,
+        webp: MarkShuttleworthWebp,
       },
       role: "Mission Specialist",
       bio:
@@ -99,8 +99,8 @@ export const data = {
     {
       name: "Victor Glover",
       images: {
-        png: "./assets/crew/image-victor-glover.png",
-        webp: "./assets/crew/image-victor-glover.webp",
+        png: VictorGloverPng,
+        webp: VictorGloverWebp,
       },
       role: "Pilot",
       bio:
@@ -109,13 +109,13 @@ export const data = {
     {
       name: "Anousheh Ansari",
       images: {
-        png: "./assets/crew/image-anousheh-ansari.png",
-        webp: "./assets/crew/image-anousheh-ansari.webp",
+        png: VictorGloverPng,
+        webp: VictorGloverWebp,
       },
       role: "Flight Engineer",
       bio:
         "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.",
-    },
+    }
   ],
   technology: [
     {

@@ -46,7 +46,6 @@ const BgImage = ({ children }) => {
     },
   };
 
-  console.log(paths[pathname].mobile);
   const { mobile, tablet, desktop } = paths[pathname];
   const HandleBgImg = () => {
     if (window.innerWidth < 640) {
