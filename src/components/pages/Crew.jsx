@@ -5,51 +5,43 @@ const Crew = () => {
   const crewdata = data.crew;
 
   const [memberindex, setmemberindex] = useState(0);
-  // const [StartX, setStartX] = useState(0);
+  const [StartX, setStartX] = useState(0);
+  const [diff, setdiff] = useState(0);
   const [currentmember, setcurrentmember] = useState(crewdata[memberindex]);
 
+  const handletouchstart = (e) => {
+    setStartX(e.touches[0].clientX);
+  };
 
+  const handletouchmove = (e) => {
+    setdiff(e.touches[0].clientX - StartX)
+    console.log(diff, "difference");
+    const threshold = 70;
+    const lastmemeber = crewdata.length - 1;
+    const firstmember = 0;
+  
+    if (diff > threshold) {
+      setmemberindex((prevIndex) =>
+        prevIndex === lastmemeber ? firstmember : prevIndex + 1
+      ); // Corrected closing parenthesis here
+    } else if (diff < -threshold) {
+      setmemberindex((prevIndex) =>
+        prevIndex === firstmember ? lastmemeber : prevIndex - 1
+      ); // Corrected closing parenthesis here
+    } 
 
-
+    setcurrentmember(crewdata[memberindex])
+    console.log(memberindex, "this is the index we currently at");
+    console.log(StartX, 'point of start')
+  };
+  const handletouchend = (e) => {
+    setStartX(0);
+    setdiff(0) 
+  };
 
   useEffect(() => {
-    // the container which we listen to its events
-    const PictureCrsl = document.getElementById("image-carousel");
-
-    // the functions for storing and calculating the points of start and finish of the touch screen
-    let start
-    const handletouch = (e) => {
-      start = e.touches[0].clientX
-      console.log(start, 'start point')
-    }
-    const handlemove = (e) => {
-      const endtouch = e.touches[0].clientX
-      console.log(endtouch, 'the point of end')
-      const difference = endtouch - start
-      console.log(difference, 'difference')
-      const threshold = 70
-      const lastmemeber = crewdata.length - 1
-      const firstmember = 0
-
-      if (difference >= threshold){
-        setmemberindex(prevIndex => prevIndex === lastmemeber ? firstmember  : prevIndex + 1)
-      } else if (difference <= -threshold) {
-        setmemberindex(prevIndex => prevIndex === firstmember ? lastmemeber : prevIndex - 1)
-      }
-      start = 0
-      console.log(memberindex, 'this is the index we currently at')
-    }
-
-    PictureCrsl.addEventListener('touchstart', handletouch)
-    PictureCrsl.addEventListener('touchmove', handlemove)
-
-    return () => {
-      PictureCrsl.removeEventListener("touchstart", handletouch);
-      PictureCrsl.removeEventListener("touchmove", handlemove);
-    };
-  }, [ memberindex]);
-
-  // console.log(currentmember, 'tihs is the current member obj')
+    console.log('the diff now is zero')
+  },[diff])
 
   return (
     <section className="text-white">
@@ -62,8 +54,14 @@ const Crew = () => {
           <h2>{currentmember.role}</h2>
           <h1>{currentmember.name}</h1>
           <p>{currentmember.bio}</p>
-          </div>
-        <picture id="image-carousel" key={currentmember.name}>
+        </div>
+        <picture
+          id="image-carousel"
+          key={currentmember.name}
+          onTouchStart={handletouchstart}
+          onTouchMove={handletouchmove}
+          onTouchEnd={handletouchend}
+        >
           <source srcSet={currentmember.images.webp} alt={currentmember.name} />
           <img src={currentmember.images.webp} alt={currentmember.name} />
         </picture>
@@ -77,5 +75,4 @@ const Crew = () => {
     </section>
   );
 };
-
 export default Crew;
